@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pengumuman Kelulusan MI Salafiyah Kranggan</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background-image:url('background.png');
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.container{
+width:100%;
+max-width:700px;
+background:linear-gradient(
+135deg,
+#ffffff 0%,
+#f8fff0 20%,
+#d8f3dc 50%,
+#fff3bf 100%
+);
+padding:35px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+animation:fadeIn 1s;
+}
+
+.logo{
+width:100px;
+margin-bottom:15px;
+}
+
+h1{
+color:#198754;
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#555;
+margin-bottom:25px;
+}
+
+.countdown{
+font-size:30px;
+font-weight:bold;
+color:#dc3545;
+margin:20px 0;
+}
+
+input{
+width:100%;
+padding:15px;
+border:2px solid #198754;
+border-radius:12px;
+font-size:16px;
+margin-top:15px;
+}
+
+button{
+margin-top:15px;
+padding:15px 30px;
+border:none;
+border-radius:12px;
+background:#198754;
+color:white;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#146c43;
+transform:scale(1.05);
+}
+
+.result{
+display:none;
+margin-top:25px;
+padding:20px;
+border-radius:15px;
+background:#f8f9fa;
+animation:zoomIn .7s;
+}
+
+.result h2{
+margin-bottom:15px;
+}
+
+.data{
+text-align:left;
+margin-top:15px;
+line-height:2;
+font-size:18px;
+}
+
+.nilai-table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+.nilai-table th{
+background:#198754;
+color:white;
+padding:10px;
+}
+
+.nilai-table td{
+padding:10px;
+border:1px solid #ddd;
+}
+
+.nilai-table tr:nth-child(even){
+background:#f2f2f2;
+}
+
+.lulus{
+color:#198754;
+font-weight:bold;
+font-size:24px;
+}
+
+.tidak{
+color:red;
+font-weight:bold;
+font-size:24px;
+}
+
+.ucapan{
+font-size:22px;
+color:#198754;
+font-weight:bold;
+margin-top:15px;
+animation:pulse 1s infinite;
+}
+
+.footer{
+margin-top:20px;
+font-size:14px;
+color:#666;
+}
+
+@keyframes fadeIn{
+from{opacity:0}
+to{opacity:1}
+}
+
+@keyframes zoomIn{
+from{
+transform:scale(.5);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.1)}
+100%{transform:scale(1)}
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<img src="logo.png" alt="Logo MI Salafiyah Kranggan" class="logo">
+
+<h1>🎓 PENGUMUMAN KELULUSAN</h1>
+<h2>MI SALAFIYAH KRANGGAN</h2>
+<p class="subtitle">Tahun Pelajaran 2025/2026</p>
+
+<div id="countdownArea">
+<h3>Pengumuman Akan Dibuka Dalam</h3>
+<div class="countdown" id="countdown"></div>
+</div>
+
+<div id="cekArea" style="display:none;">
+<input type="text" id="nisn" placeholder="Masukkan NISN">
+
+<button onclick="cekKelulusan()">
+Lihat Kelulusan
+</button>
+</div>
+
+<div class="result" id="hasil"></div>
+
+<div class="footer">
+© MI Salafiyah Kranggan
+</div>
+
+</div>
+
+<script>
+
+//=====================================
+// TANGGAL PENGUMUMAN
+//=====================================
+
+const tanggalPengumuman =
+new Date("May 10, 2026 10:00:00").getTime();
+
+
+//=====================================
+// DATA SISWA
+//=====================================
+
+const siswa = {
+
+"3138277127":{
+nama:"ACHMAD IKMAL ROSYAD",
+nisn:"3138277127",
+status:"LULUS",
+
+nilai:{
+"Qur'an Hadist":81,
+"Akidah Akhlak":77,
+"Fiqih":83,
+"Sejarah Kebudayaan Islam":83,
+"Bahasa Arab":78,
+"Pendidikan Pancasila":76,
+"Bahasa Indonesia":79,
+"Matematika":72,
+"Ilmu Pengetahuan Alam dan Sosial":76,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":82,
+"Seni Budaya dan Prakarya":80,
+"Bahasa Inggris":75,
+"Bahasa Jawa":77,
+"Ke NU-an":83
+}
+},
+
+"0139447929":{
+nama:"AHMAD FATKHUR ROIHAN",
+nisn:"0139447929",
+status:"LULUS",
+
+nilai:{
+"Qur'an Hadist":76,
+"Akidah Akhlak":72,
+"Fiqih":76,
+"Sejarah Kebudayaan Islam":74,
+"Bahasa Arab":75,
+"Pendidikan Pancasila":79,
+"Bahasa Indonesia":80,
+"Matematika":75,
+"Ilmu Pengetahuan Alam dan Sosial":76,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":84,
+"Seni Budaya dan Prakarya":78,
+"Bahasa Inggris":73,
+"Bahasa Jawa":70,
+"Ke NU-an":72
+}
+},
+"3136949446":{
+nama:"ARDIKA DWI ROHMAN",
+nisn:"3136949446",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":78,
+"Akidah Akhlak":78,
+"Fiqih":82,
+"Sejarah Kebudayaan Islam":78,
+"Bahasa Arab":76,
+"Pendidikan Pancasila":83,
+"Bahasa Indonesia":77,
+"Matematika":68,
+"Ilmu Pengetahuan Alam dan Sosial":78,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":83,
+"Seni Budaya dan Prakarya":80,
+"Bahasa Inggris":69,
+"Bahasa Jawa":73,
+"Ke NU-an":76
+}
+},
+"3139737538":{
+nama:"ARJU ITTABA' BENABI",
+nisn:"3139737538",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":92,
+"Akidah Akhlak":86,
+"Fiqih":90,
+"Sejarah Kebudayaan Islam":85,
+"Bahasa Arab":84,
+"Pendidikan Pancasila":80,
+"Bahasa Indonesia":88,
+"Matematika":87,
+"Ilmu Pengetahuan Alam dan Sosial":82,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":82,
+"Seni Budaya dan Prakarya":81,
+"Bahasa Inggris":84,
+"Bahasa Jawa":82,
+"Ke NU-an":88
+}
+},
+"3138082279":{
+nama:"ATIKA NUR FADHILA",
+nisn:"3138082279",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":83,
+"Akidah Akhlak":82,
+"Fiqih":85,
+"Sejarah Kebudayaan Islam":82,
+"Bahasa Arab":81,
+"Pendidikan Pancasila":80,
+"Bahasa Indonesia":83,
+"Matematika":77,
+"Ilmu Pengetahuan Alam dan Sosial":78,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":82,
+"Seni Budaya dan Prakarya":85,
+"Bahasa Inggris":79,
+"Bahasa Jawa":80,
+"Ke NU-an":86
+}
+},
+"3134076691":{
+nama:"AULIA IZZATUNNISA",
+nisn:"3134076691",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":87,
+"Akidah Akhlak":78,
+"Fiqih":82,
+"Sejarah Kebudayaan Islam":81,
+"Bahasa Arab":79,
+"Pendidikan Pancasila":79,
+"Bahasa Indonesia":82,
+"Matematika":79,
+"Ilmu Pengetahuan Alam dan Sosial":76,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":80,
+"Seni Budaya dan Prakarya":82,
+"Bahasa Inggris":77,
+"Bahasa Jawa":76,
+"Ke NU-an":79
+}
+},
+"3136430729":{
+nama:"IBRAHIM FIGO SANTOSO",
+nisn:"3136430729",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":76,
+"Akidah Akhlak":72,
+"Fiqih":76,
+"Sejarah Kebudayaan Islam":75,
+"Bahasa Arab":77,
+"Pendidikan Pancasila":74,
+"Bahasa Indonesia":75,
+"Matematika":76,
+"Ilmu Pengetahuan Alam dan Sosial":76,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":84,
+"Seni Budaya dan Prakarya":83,
+"Bahasa Inggris":72,
+"Bahasa Jawa":73,
+"Ke NU-an":76
+}
+},
+"3137346304":{
+nama:"KANIA LETISHA IBRANI",
+nisn:"3137346304",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":89,
+"Akidah Akhlak":85,
+"Fiqih":91,
+"Sejarah Kebudayaan Islam":85,
+"Bahasa Arab":83,
+"Pendidikan Pancasila":84,
+"Bahasa Indonesia":88,
+"Matematika":80,
+"Ilmu Pengetahuan Alam dan Sosial":83,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":80,
+"Seni Budaya dan Prakarya":85,
+"Bahasa Inggris":85,
+"Bahasa Jawa":84,
+"Ke NU-an":88
+}
+},
+"3134041938":{
+nama:"MAISYUR FARID MADANI",
+nisn:"3134041938",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":76,
+"Akidah Akhlak":68,
+"Fiqih":75,
+"Sejarah Kebudayaan Islam":68,
+"Bahasa Arab":74,
+"Pendidikan Pancasila":67,
+"Bahasa Indonesia":71,
+"Matematika":66,
+"Ilmu Pengetahuan Alam dan Sosial":72,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":80,
+"Seni Budaya dan Prakarya":81,
+"Bahasa Inggris":71,
+"Bahasa Jawa":71,
+"Ke NU-an":73
+}
+},
+"0131350072":{
+nama:"MUHAMMAD ABIEM REYTAMA",
+nisn:"0131350072",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":88,
+"Akidah Akhlak":79,
+"Fiqih":88,
+"Sejarah Kebudayaan Islam":82,
+"Bahasa Arab":77,
+"Pendidikan Pancasila":83,
+"Bahasa Indonesia":84,
+"Matematika":86,
+"Ilmu Pengetahuan Alam dan Sosial":84,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":83,
+"Seni Budaya dan Prakarya":84,
+"Bahasa Inggris":78,
+"Bahasa Jawa":80,
+"Ke NU-an":82
+}
+},
+"0147488954":{
+nama:"MUHAMMAD FARRELL ACHYA AN NAJACH",
+nisn:"0147488954",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":78,
+"Akidah Akhlak":74,
+"Fiqih":78,
+"Sejarah Kebudayaan Islam":79,
+"Bahasa Arab":76,
+"Pendidikan Pancasila":77,
+"Bahasa Indonesia":83,
+"Matematika":72,
+"Ilmu Pengetahuan Alam dan Sosial":78,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":80,
+"Seni Budaya dan Prakarya":84,
+"Bahasa Inggris":73,
+"Bahasa Jawa":73,
+"Ke NU-an":77
+}
+},
+"3148009141":{
+nama:"NAHARA DINDA RASYIFA",
+nisn:"3148009141",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":73,
+"Akidah Akhlak":73,
+"Fiqih":75,
+"Sejarah Kebudayaan Islam":72,
+"Bahasa Arab":75,
+"Pendidikan Pancasila":79,
+"Bahasa Indonesia":78,
+"Matematika":67,
+"Ilmu Pengetahuan Alam dan Sosial":74,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":79,
+"Seni Budaya dan Prakarya":80,
+"Bahasa Inggris":73,
+"Bahasa Jawa":69,
+"Ke NU-an":73
+}
+},
+"3134277984":{
+nama:"SALWA AIRIN YUSUFA",
+nisn:"3134277984",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":85,
+"Akidah Akhlak":83,
+"Fiqih":85,
+"Sejarah Kebudayaan Islam":85,
+"Bahasa Arab":80,
+"Pendidikan Pancasila":84,
+"Bahasa Indonesia":81,
+"Matematika":84,
+"Ilmu Pengetahuan Alam dan Sosial":83,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":78,
+"Seni Budaya dan Prakarya":80,
+"Bahasa Inggris":88,
+"Bahasa Jawa":76,
+"Ke NU-an":82
+}
+},
+"3139536717":{
+nama:"SITI PARNIYAH",
+nisn:"3139536717",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":90,
+"Akidah Akhlak":85,
+"Fiqih":89,
+"Sejarah Kebudayaan Islam":84,
+"Bahasa Arab":81,
+"Pendidikan Pancasila":84,
+"Bahasa Indonesia":86,
+"Matematika":93,
+"Ilmu Pengetahuan Alam dan Sosial":85,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":81,
+"Seni Budaya dan Prakarya":84,
+"Bahasa Inggris":86,
+"Bahasa Jawa":86,
+"Ke NU-an":86
+}
+},
+"3137911242":{
+nama:"SYAKIRA AFTHANI",
+nisn:"3137911242",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":83,
+"Akidah Akhlak":77,
+"Fiqih":83,
+"Sejarah Kebudayaan Islam":84,
+"Bahasa Arab":78,
+"Pendidikan Pancasila":82,
+"Bahasa Indonesia":82,
+"Matematika":71,
+"Ilmu Pengetahuan Alam dan Sosial":76,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":82,
+"Seni Budaya dan Prakarya":82,
+"Bahasa Inggris":79,
+"Bahasa Jawa":74,
+"Ke NU-an":82
+}
+},
+"3131350941":{
+nama:"TAMAM KURNIADI",
+nisn:"3131350941",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":88,
+"Akidah Akhlak":88,
+"Fiqih":83,
+"Sejarah Kebudayaan Islam":88,
+"Bahasa Arab":77,
+"Pendidikan Pancasila":90,
+"Bahasa Indonesia":88,
+"Matematika":86,
+"Ilmu Pengetahuan Alam dan Sosial":87,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":80,
+"Seni Budaya dan Prakarya":81,
+"Bahasa Inggris":91,
+"Bahasa Jawa":84,
+"Ke NU-an":82
+}
+},
+"3134609269":{
+nama:"ZAHRA AMIRA RAHMAN",
+nisn:"3134609269",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":83,
+"Akidah Akhlak":81,
+"Fiqih":86,
+"Sejarah Kebudayaan Islam":82,
+"Bahasa Arab":82,
+"Pendidikan Pancasila":80,
+"Bahasa Indonesia":84,
+"Matematika":82,
+"Ilmu Pengetahuan Alam dan Sosial":80,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":80,
+"Seni Budaya dan Prakarya":83,
+"Bahasa Inggris":82,
+"Bahasa Jawa":78,
+"Ke NU-an":85
+}
+},
+"3130757512":{
+nama:"ATIQA FAIRUZ KHALISATUL ILMA",
+nisn:"3130757512",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":89,
+"Akidah Akhlak":85,
+"Fiqih":91,
+"Sejarah Kebudayaan Islam":85,
+"Bahasa Arab":80,
+"Pendidikan Pancasila":87,
+"Bahasa Indonesia":85,
+"Matematika":78,
+"Ilmu Pengetahuan Alam dan Sosial":81,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":79,
+"Seni Budaya dan Prakarya":86,
+"Bahasa Inggris":79,
+"Bahasa Jawa":81,
+"Ke NU-an":87
+}
+},
+"3134678216":{
+nama:"DEWI ZULAIKHO",
+nisn:"3134678216",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":90,
+"Akidah Akhlak":86,
+"Fiqih":89,
+"Sejarah Kebudayaan Islam":83,
+"Bahasa Arab":82,
+"Pendidikan Pancasila":90,
+"Bahasa Indonesia":88,
+"Matematika":92,
+"Ilmu Pengetahuan Alam dan Sosial":85,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":81,
+"Seni Budaya dan Prakarya":85,
+"Bahasa Inggris":87,
+"Bahasa Jawa":83,
+"Ke NU-an":89
+}
+},
+"0146208462":{
+nama:"FAHMI IKHWAN SETIAWAN",
+nisn:"0146208462",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":74,
+"Akidah Akhlak":71,
+"Fiqih":79,
+"Sejarah Kebudayaan Islam":74,
+"Bahasa Arab":71,
+"Pendidikan Pancasila":74,
+"Bahasa Indonesia":72,
+"Matematika":74,
+"Ilmu Pengetahuan Alam dan Sosial":76,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":80,
+"Seni Budaya dan Prakarya":82,
+"Bahasa Inggris":70,
+"Bahasa Jawa":70,
+"Ke NU-an":71
+}
+},
+"0145226816":{
+nama:"FAIHA AZKANA SAKHIA",
+nisn:"0145226816",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":94,
+"Akidah Akhlak":90,
+"Fiqih":89,
+"Sejarah Kebudayaan Islam":92,
+"Bahasa Arab":83,
+"Pendidikan Pancasila":89,
+"Bahasa Indonesia":90,
+"Matematika":73,
+"Ilmu Pengetahuan Alam dan Sosial":88,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":80,
+"Seni Budaya dan Prakarya":83,
+"Bahasa Inggris":90,
+"Bahasa Jawa":86,
+"Ke NU-an":90
+}
+},
+"3137075687":{
+nama:"HANNA AYUDYA ADHA",
+nisn:"3137075687",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":89,
+"Akidah Akhlak":86,
+"Fiqih":92,
+"Sejarah Kebudayaan Islam":86,
+"Bahasa Arab":82,
+"Pendidikan Pancasila":92,
+"Bahasa Indonesia":86,
+"Matematika":81,
+"Ilmu Pengetahuan Alam dan Sosial":86,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":80,
+"Seni Budaya dan Prakarya":84,
+"Bahasa Inggris":80,
+"Bahasa Jawa":82,
+"Ke NU-an":85
+}
+},
+"3139245600":{
+nama:"IBRAM ROZZIQ EFENDY",
+nisn:"3139245600",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":86,
+"Akidah Akhlak":82,
+"Fiqih":86,
+"Sejarah Kebudayaan Islam":86,
+"Bahasa Arab":80,
+"Pendidikan Pancasila":87,
+"Bahasa Indonesia":87,
+"Matematika":81,
+"Ilmu Pengetahuan Alam dan Sosial":84,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":84,
+"Seni Budaya dan Prakarya":83,
+"Bahasa Inggris":79,
+"Bahasa Jawa":81,
+"Ke NU-an":86
+}
+},
+"3135383911":{
+nama:"KEYSHA SILMI KAFAH",
+nisn:"3135383911",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":79,
+"Akidah Akhlak":75,
+"Fiqih":81,
+"Sejarah Kebudayaan Islam":79,
+"Bahasa Arab":76,
+"Pendidikan Pancasila":78,
+"Bahasa Indonesia":77,
+"Matematika":67,
+"Ilmu Pengetahuan Alam dan Sosial":79,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":81,
+"Seni Budaya dan Prakarya":82,
+"Bahasa Inggris":77,
+"Bahasa Jawa":72,
+"Ke NU-an":74
+}
+},
+"3125440924":{
+nama:"LATIF FATHU ROHMAN",
+nisn:"3125440924",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":73,
+"Akidah Akhlak":68,
+"Fiqih":70,
+"Sejarah Kebudayaan Islam":67,
+"Bahasa Arab":69,
+"Pendidikan Pancasila":69,
+"Bahasa Indonesia":66,
+"Matematika":65,
+"Ilmu Pengetahuan Alam dan Sosial":74,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":82,
+"Seni Budaya dan Prakarya":79,
+"Bahasa Inggris":69,
+"Bahasa Jawa":70,
+"Ke NU-an":69
+}
+},
+"3135350170":{
+nama:"LUTHVIANA APRILIA NANDA",
+nisn:"3135350170",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":87,
+"Akidah Akhlak":90,
+"Fiqih":93,
+"Sejarah Kebudayaan Islam":90,
+"Bahasa Arab":84,
+"Pendidikan Pancasila":92,
+"Bahasa Indonesia":88,
+"Matematika":86,
+"Ilmu Pengetahuan Alam dan Sosial":86,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":81,
+"Seni Budaya dan Prakarya":81,
+"Bahasa Inggris":83,
+"Bahasa Jawa":84,
+"Ke NU-an":89
+}
+},
+"3130729552":{
+nama:"MUHAMMAD AZKA AIYSAR",
+nisn:"3130729552",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":86,
+"Akidah Akhlak":83,
+"Fiqih":88,
+"Sejarah Kebudayaan Islam":82,
+"Bahasa Arab":76,
+"Pendidikan Pancasila":88,
+"Bahasa Indonesia":79,
+"Matematika":70,
+"Ilmu Pengetahuan Alam dan Sosial":84,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":79,
+"Seni Budaya dan Prakarya":83,
+"Bahasa Inggris":76,
+"Bahasa Jawa":72,
+"Ke NU-an":79
+}
+},
+"3140505925":{
+nama:"MUHAMMAD DAFA AL KHALIFI",
+nisn:"3140505925",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":83,
+"Akidah Akhlak":85,
+"Fiqih":86,
+"Sejarah Kebudayaan Islam":82,
+"Bahasa Arab":76,
+"Pendidikan Pancasila":90,
+"Bahasa Indonesia":84,
+"Matematika":84,
+"Ilmu Pengetahuan Alam dan Sosial":85,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":84,
+"Seni Budaya dan Prakarya":80,
+"Bahasa Inggris":80,
+"Bahasa Jawa":80,
+"Ke NU-an":77
+}
+},
+"3130664999":{
+nama:"NAILALMUNA KHAIRANI",
+nisn:"3130664999",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":88,
+"Akidah Akhlak":89,
+"Fiqih":91,
+"Sejarah Kebudayaan Islam":87,
+"Bahasa Arab":82,
+"Pendidikan Pancasila":94,
+"Bahasa Indonesia":89,
+"Matematika":76,
+"Ilmu Pengetahuan Alam dan Sosial":85,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":81,
+"Seni Budaya dan Prakarya":84,
+"Bahasa Inggris":87,
+"Bahasa Jawa":77,
+"Ke NU-an":89
+}
+},
+"3131417917":{
+nama:"OKTA KHOIRUL HIDAYAT",
+nisn:"3131417917",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":79,
+"Akidah Akhlak":74,
+"Fiqih":78,
+"Sejarah Kebudayaan Islam":73,
+"Bahasa Arab":76,
+"Pendidikan Pancasila":74,
+"Bahasa Indonesia":77,
+"Matematika":70,
+"Ilmu Pengetahuan Alam dan Sosial":76,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":83,
+"Seni Budaya dan Prakarya":79,
+"Bahasa Inggris":75,
+"Bahasa Jawa":70,
+"Ke NU-an":75
+}
+},
+"0136574964":{
+nama:"REXZA KINGGI LOVEVIAN",
+nisn:"0136574964",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":78,
+"Akidah Akhlak":82,
+"Fiqih":81,
+"Sejarah Kebudayaan Islam":78,
+"Bahasa Arab":72,
+"Pendidikan Pancasila":83,
+"Bahasa Indonesia":83,
+"Matematika":74,
+"Ilmu Pengetahuan Alam dan Sosial":84,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":81,
+"Seni Budaya dan Prakarya":80,
+"Bahasa Inggris":84,
+"Bahasa Jawa":71,
+"Ke NU-an":70
+}
+},
+"3144731797":{
+nama:"SALMA KHAERUN NIKMA",
+nisn:"3144731797",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":84,
+"Akidah Akhlak":81,
+"Fiqih":87,
+"Sejarah Kebudayaan Islam":84,
+"Bahasa Arab":81,
+"Pendidikan Pancasila":92,
+"Bahasa Indonesia":84,
+"Matematika":75,
+"Ilmu Pengetahuan Alam dan Sosial":82,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":79,
+"Seni Budaya dan Prakarya":80,
+"Bahasa Inggris":83,
+"Bahasa Jawa":78,
+"Ke NU-an":82
+}
+},
+"3137728964":{
+nama:"ULFA NABILA SANTIKA",
+nisn:"3137728964",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":86,
+"Akidah Akhlak":86,
+"Fiqih":88,
+"Sejarah Kebudayaan Islam":91,
+"Bahasa Arab":79,
+"Pendidikan Pancasila":87,
+"Bahasa Indonesia":84,
+"Matematika":70,
+"Ilmu Pengetahuan Alam dan Sosial":82,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":77,
+"Seni Budaya dan Prakarya":79,
+"Bahasa Inggris":83,
+"Bahasa Jawa":71,
+"Ke NU-an":82
+}
+},
+"3131747003":{
+nama:"ZARA NADIA AKHYAR",
+nisn:"3131747003",
+status:"LULUS",
+nilai:{
+"Qur'an Hadist":90,
+"Akidah Akhlak":88,
+"Fiqih":93,
+"Sejarah Kebudayaan Islam":93,
+"Bahasa Arab":82,
+"Pendidikan Pancasila":93,
+"Bahasa Indonesia":89,
+"Matematika":90,
+"Ilmu Pengetahuan Alam dan Sosial":89,
+"Pendidikan Jasmani, Olahraga, dan Kesehatan":82,
+"Seni Budaya dan Prakarya":87,
+"Bahasa Inggris":88,
+"Bahasa Jawa":90,
+"Ke NU-an":90
+}
+},
+};
+
+
+
+//=====================================
+// COUNTDOWN
+//=====================================
+
+const x = setInterval(function(){
+
+const sekarang = new Date().getTime();
+
+const jarak =
+tanggalPengumuman - sekarang;
+
+const hari =
+Math.floor(jarak/(1000*60*60*24));
+
+const jam =
+Math.floor((jarak%(1000*60*60*24))
+/(1000*60*60));
+
+const menit =
+Math.floor((jarak%(1000*60*60))
+/(1000*60));
+
+const detik =
+Math.floor((jarak%(1000*60))/1000);
+
+document.getElementById("countdown").innerHTML=
+hari+" Hari "+
+jam+" Jam "+
+menit+" Menit "+
+detik+" Detik";
+
+if(jarak < 0){
+
+clearInterval(x);
+
+document.getElementById("countdownArea").style.display="none";
+document.getElementById("cekArea").style.display="block";
+
+}
+
+},1000);
+
+
+//=====================================
+// CEK KELULUSAN
+//=====================================
+
+function cekKelulusan(){
+
+const nisn =
+document.getElementById("nisn").value;
+
+const hasil =
+document.getElementById("hasil");
+
+if(siswa[nisn]){
+
+let data = siswa[nisn];
+
+let daftarNilai = "";
+
+for(let mapel in data.nilai){
+    daftarNilai += `
+    <tr>
+      <td>${mapel}</td>
+      <td>${data.nilai[mapel]}</td>
+    </tr>
+    `;
+}
+
+let statusClass =
+data.status=="LULUS"
+? "lulus"
+: "tidak";
+
+if(data.status=="LULUS"){
+    confetti({
+        particleCount:250,
+        spread:180,
+        origin:{y:0.6}
+    });
+}
+
+hasil.style.display="block";
+
+hasil.innerHTML = `
+
+<h2>HASIL KELULUSAN</h2>
+
+<div class="data">
+
+<b>Nama Siswa :</b> ${data.nama}<br>
+
+<b>NISN :</b> ${data.nisn}<br><br>
+
+<b>Status :</b>
+<span class="${statusClass}">
+${data.status}
+</span>
+
+${data.status=="LULUS" ? `
+<div class="ucapan">
+🎉 Selamat anda telah dinyatakan lulus dengan nilai:
+</div>
+` : `
+<div style="color:red;font-weight:bold;font-size:20px;">
+Tetap Semangat dan Jangan Menyerah
+</div>
+`}
+
+<br>
+
+<table class="nilai-table">
+<tr>
+<th>Mata Pelajaran</th>
+<th>Nilai</th>
+</tr>
+
+${daftarNilai}
+
+</table>
+
+</div>
+
+`;
+
+}else{
+
+hasil.style.display="block";
+
+hasil.innerHTML=`
+<h3 style="color:red">
+Data Tidak Ditemukan
+</h3>
+`;
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
